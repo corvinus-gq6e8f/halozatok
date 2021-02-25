@@ -1,0 +1,29 @@
+﻿body{
+    background-color: lightgreen;
+}
+.szoveg {
+    padding: 15px;
+    margin: 10px;
+    border: 4px groove forestgreen;
+    border-radius: 8px;
+}
+
+img{
+    display:block;
+    margin: auto;
+}
+
+h2{
+    font-style: italic;
+}
+
+h2:hover{
+    display:inline;
+    font-size: 50px;
+    color: greenyellow;
+    background-color: purple;
+}
+
+#nev{
+    font-weight: bold;
+}
