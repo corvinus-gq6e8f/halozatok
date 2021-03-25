@@ -27,6 +27,7 @@ div {
 }
 
 #válaszok {
+    flex-direction:column;
     flex-grow: 1;
     flex-shrink: 1;
     background-color: #FFB703;
@@ -42,7 +43,9 @@ div {
 #válasz3 {
 }
 
-#kép {
+#akép {
+    max-width:100%;
+    height:auto;
 }
 
 #vezérlő {
