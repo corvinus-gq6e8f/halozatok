@@ -33,14 +33,14 @@ function kérdésMegjelenítés(k) {
 }
 
 function Léptetelőre() {
-    if (helyzet == kérdés.length + 1) {
+    if (helyzet == kérdés.length - 1) {
         helyzet = 0;
-        letöltés();
+        kérdésMegjelenítés(helyzet);
         clear();
     }
     else {
         helyzet++;
-        letöltés();
+        kérdésMegjelenítés(helyzet);
         clear();
     }
 }
@@ -48,12 +48,12 @@ function Léptetelőre() {
 function Léptethátra() {
     if (helyzet == 0) {
         helyzet = kérdés.length - 1;
-        letöltés();
+        kérdésMegjelenítés(helyzet);
         clear();
     }
     else {
         helyzet--;
-        letöltés();
+        kérdésMegjelenítés(helyzet);
         clear();
     }
 }
@@ -72,7 +72,7 @@ function ellenőriz(k) {
 
 function clear() {
     for (var i = 1; i < 4; i++) {
-        let elem = document.getElementById("valasz" + i)
+        let elem = document.getElementById("válasz" + i)
         elem.style.backgroundColor = "rgb(255, 183, 3)";
     }
 }
