@@ -4,20 +4,33 @@ var helyzet = 0;
 window.onload = letöltés();
 
 function letöltés() {
-    fetch('/questions.json')
-    .then(response => response.json())
-    .then(data => letöltésBefejeződött(data)
-    ) 
+    fetch('/questions/1')
+        .then(response => response.json())
+        .then(data => kérdésMegjelenítés(data)
+        ); 
 }
 
 function letöltésBefejeződött(d) {
     console.log("Sikeres letöltés")
     console.log(d)
     kérdés = d;
-    kérdésMegjelenítés(0);
+    kérdésMegjelenítés(helyzet);
 }
 
-function kérdésMegjelenítés(k) {
+function kérdésBetöltés(id) {
+    fetch(/questions/${id})
+        .then(response => {
+            if (!response.ok) {
+                console.error(`Hibás válasz: ${response.status}`)
+            }
+            else {
+                return response.json();
+            }
+        })
+        .then(data => kérdésMegjelenítés(data));
+}
+
+/*function kérdésMegjelenítés(k) {
     let ide = document.getElementById("kérdés_szöveg");
     ide.innerHTML = kérdés[k].questionText
 
@@ -30,30 +43,40 @@ function kérdésMegjelenítés(k) {
     if (document.getElementById("akép").src != "") {
         document.getElementById("akép").src = kérdés[k].image
     }
+}*/
+function kérdésMegjelenítés(kérdés) {
+    console.log(kérdés);
+    document.getElementById("kérdés_szöveg").innerText = kérdés.questionText
+    document.getElementById("válasz1").innerText = kérdés.answer1
+    document.getElementById("válasz2").innerText = kérdés.answer2
+    document.getElementById("válasz3").innerText = kérdés.answer3
+    if (document.getElementById("akép").src != "") {
+        document.getElementById("akép").src = kérdés.image
+    }
 }
 
 function Léptetelőre() {
-    if (helyzet == kérdés.length - 1) {
+    if (helyzet == 858) {
         helyzet = 0;
-        kérdésMegjelenítés(helyzet);
+        kérdésBetöltés(0);
         clear();
     }
     else {
         helyzet++;
-        kérdésMegjelenítés(helyzet);
+        kérdésBetöltés(helyzet);
         clear();
     }
 }
 
 function Léptethátra() {
     if (helyzet == 0) {
-        helyzet = kérdés.length - 1;
-        kérdésMegjelenítés(helyzet);
+        helyzet = 858;
+        kérdésBetöltés(helyzet);
         clear();
     }
     else {
         helyzet--;
-        kérdésMegjelenítés(helyzet);
+        kérdésBetöltés(helyzet);
         clear();
     }
 }

@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="hajo.css" rel="stylesheet" />
-    <script src="hetedik.js"></script>
+    <script src="tizedik.js"></script>
     <title>Hajós jogsi Gyakorló</title>
 </head>
 <body>
@@ -15,9 +15,9 @@
 
         <div id="középső">
             <div id="válaszok">
-                <div class="kattintható" id="válasz1" onclick="ellenőriz(1)">Válasz 1</div>
-                <div class="kattintható" id="válasz2" onclick="ellenőriz(2)">Válasz 2</div>
-                <div class="kattintható" id="válasz3" onclick="ellenőriz(3)">Válasz 3</div>
+                <div class="kattintható" id="válasz1" onclick="választás(1)">Válasz 1</div>
+                <div class="kattintható" id="válasz2" onclick="választás(2)">Válasz 2</div>
+                <div class="kattintható" id="válasz3" onclick="választás(3)">Válasz 3</div>
             </div>
 
             <div id="kép">
@@ -26,8 +26,8 @@
         </div>
 
         <div id="vezérlő">
-            <div class="gomb kattintható" onmousedown="Léptetelőre()">Vissza</div>
-            <div class="gomb kattintható" onmousedown="Léptethátra()">Előre</div>
+            <div id="vissza_gomb" class="gomb kattintható">Vissza</div>
+            <div id="előre_gomb" class="gomb kattintható">Előre</div>
         </div>
     </div>
 </body>
